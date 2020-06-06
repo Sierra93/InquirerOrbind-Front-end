@@ -71,8 +71,10 @@ var redirects = new Vue({
 			.then((response) => {
 				console.log("Опросы были выведены успешно", response);
 
-
-				window.location.href = 'https://dev1myprojects24.xyz/allQuestions.html';				
+				localStorage["questionsAll"] = JSON.stringify(response.data)
+						
+				window.location.href = 'https://dev1myprojects24.xyz/allQuestions.html';
+				this.questions = JSON.parse(localStorage["questionsAll"]);				
 			})
 			.catch((XMLHttpRequest) => {
 				console.log("request send error", XMLHttpRequest.response.data);
@@ -259,6 +261,7 @@ var redirects = new Vue({
 			var findTitle = $(event.target).parent().parent().parent().parent()[0].innerText.split("\n")[1];
 			var arr = this.questionsAll.filter(el => el.title == findTitle);
 			var concreteId = arr[0].id;
+			localStorage['quId'] = arr[0].id;
 			var lUrlCheckIn = "https://dev2myprojects24.xyz/api/data/question/get-concrete-question";
 
 			const oUser = {
