@@ -23,7 +23,7 @@
 					<a href="index.html"><button type="button" class="btn btn-link navLink" v-on:click="directIndex">Главная</button></a>
 					<a href="#about"><button type="button" class="btn btn-link navLink">О проекте</button></a>
 					<a href="#vote"><button type="button" class="btn btn-link navLink">Опросы</button></a>
-					<a href="#faq"><button type="button" class="btn btn-link navLink">FAQ</button></a>
+					<a href="#faq"><button type="button" class="btn btn-link navLink" v-on:click="directShop">Магазин</button></a>
 					<a href="#reviews"><button type="button" class="btn btn-link navLink">Отзывы</button></a>
 					<button type="button" class="navBtn" data-toggle="modal" data-target="#login">Войти</button>
 					<button type="button" class="strip" data-toggle="modal" data-target="#reg">Регистрация</button>
@@ -42,13 +42,13 @@
 						<button type="button" class="btn btn-link navLink" v-on:click="directAllQu">Опросы</button>
 						<button type="button" class="btn btn-link navLink" v-on:click="directCreateQu">Создать опрос</button>
 						<button type="button" class="btn btn-link navLink">Статистика</button>
-						<button type="button" class="btn btn-link navLink">FAQ</button>
+						<button type="button" class="btn btn-link navLink" v-on:click="directShop">Магазин</button>
 						<button type="button" class="btn btn-link navLink">Отзывы</button>
 						<button type="button" id="logoutLink" class="btn btn-link navLink" v-on:click="logout">Выход</button>
 					</div>
 				</div>
 				<div class="col-xl-3 nav navProfile mt-4">
-					<p>100 баллов</p>
+					<p>{{points}} баллов</p>
 				</div>
 			</div>
 		</div>
@@ -128,8 +128,8 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	</div>
+	
+	
 
 	<section class="shop">
 		<div class="shopContainer">
@@ -151,7 +151,7 @@
 											<div class="amountBalls">
 												1000 баллов
 											</div>
-											<button class="getMusic">Получить</button>
+											<button type="button" class="getMusic" v-on:click="getMusic">Получить</button>
 										</div>
 									</div>
 								</div>
@@ -165,13 +165,13 @@
 					</div>
 					<div class="col-4">
 						<div class="bonuses">
-							<div class="bonus kinoBonus">
+							<div class="giftPl kinoBonus">
 								<div class="row">
 									<div class="col-6">
 										<div class="kinoText">
 											<h2>Кинобонус</h2>
 											<h1>Подписка на КиноПоиск</h1>
-											<p>1500 баллов</p>
+											<button class="getMusic" v-on:click="getKino">1500 баллов</button>
 										</div>
 									</div>
 									<div class="col-6">
@@ -181,13 +181,13 @@
 									</div>
 								</div>
 							</div>
-							<div class="bonus pizzaBonus mt-3">
+							<div class="giftPl pizzaBonus mt-3">
 								<div class="row">
 									<div class="col-6">
 										<div class="kinoText">
 											<h2>Пицца Time</h2>
 											<h1>Скидка 10% на любую пиццу</h1>
-											<p>2000 баллов</p>
+											<button class="getMusic" v-on:click="getPizza">2000 баллов</button>
 										</div>
 									</div>
 									<div class="col-6">
@@ -212,7 +212,7 @@
 								</div>
 								<div class="footerbenzin">
 									<h3>1000 баллов</h3>
-									<button class="getBenzin">Получить</button>
+									<button class="getBenzin" v-on:click="getBenzin">Получить</button>
 								</div>
 							</div>
 						</div>
@@ -225,7 +225,7 @@
 								</div>
 								<div class="footerbenzin">
 									<h3>1000 баллов</h3>
-									<button class="getBenzin">Получить</button>
+									<button class="getBenzin" v-on:click="getBenzin">Получить</button>
 								</div>
 							</div>
 						</div>
@@ -238,7 +238,7 @@
 								</div>
 								<div class="footerbenzin">
 									<h3>1000 баллов</h3>
-									<button class="getBenzin">Получить</button>
+									<button class="getBenzin" v-on:click="getBenzin">Получить</button>
 								</div>
 							</div>
 						</div>
@@ -251,7 +251,7 @@
 								</div>
 								<div class="footerbenzin">
 									<h3>1000 баллов</h3>
-									<button class="getBenzin">Получить</button>
+									<button class="getBenzin" v-on:click="getBenzin">Получить</button>
 								</div>
 							</div>
 						</div>
@@ -260,6 +260,8 @@
 			</div>
 		</div>
 	</section>
+	</div>
+	</div>
 	
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

@@ -21,6 +21,10 @@ var redirects = new Vue({
 		questions: JSON.parse(localStorage["questions"]),
 		questionsAll: JSON.parse(localStorage["questionsAll"]),
 		answers: [],
+		musicGifts: localStorage["musicGift"],
+		kinoGifts: localStorage["kinoGift"], 
+		pizzaGifts: localStorage["pizzaGift"], 
+		benzinGifts: localStorage["benzinGift"], 
 		answer_1: localStorage['answer1'],
 		answer_2: localStorage['answer2'],
 		answer_3: localStorage['answer3'],
@@ -36,7 +40,29 @@ var redirects = new Vue({
 			window.location.href = 'https://dev1myprojects24.xyz/createQuestion.html';
 		},
 		directShop: function(event) {
-			window.location.href = 'https://dev1myprojects24.xyz/gifts.html';
+			var sUrl = "https://dev2myprojects24.xyz/api/data/shop/get-prize";
+
+			axios.post(sUrl)
+			.then((response) => {
+				console.log("Призы были переданы успешно", response);
+
+				localStorage["musicGift"] = response.data[0];
+				this.musicGift = localStorage["musicGift"];
+
+				localStorage["kinoGift"] = response.data[1];
+				this.kinoGift = localStorage["kinoGift"];
+
+				localStorage["pizzaGift"] = response.data[2];
+				this.pizzaGift = localStorage["pizzaGift"];
+
+				localStorage["benzinGift"] = response.data[3];
+				this.benzinGift = localStorage["benzinGift"];
+				
+				window.location.href = 'https://dev1myprojects24.xyz/gifts.html';		
+			})
+			.catch((XMLHttpRequest) => {
+				console.log("request send error", XMLHttpRequest.response.data);
+			});
 		},
 		directAllQu: function(event) {
 			var sUrl = "https://dev2myprojects24.xyz/api/data/question/get-all-question";
@@ -45,8 +71,7 @@ var redirects = new Vue({
 			.then((response) => {
 				console.log("Опросы были выведены успешно", response);
 
-				localStorage["questionsAll"] = JSON.stringify(response.data);
-				this.questionsAll = JSON.parse(localStorage["questionsAll"]);
+
 				window.location.href = 'https://dev1myprojects24.xyz/allQuestions.html';				
 			})
 			.catch((XMLHttpRequest) => {
@@ -326,6 +351,96 @@ var redirects = new Vue({
 				.catch((XMLHttpRequest) => {
 					console.log("request send error", XMLHttpRequest.response.data);
 				});
+			}
+		},
+		getMusic: function(event) {
+			var qUrlCheckIn = "https://dev2myprojects24.xyz/api/data/shop/buy";
+			var login = localStorage['login'];
+
+			var amount = 1000;
+			if(amount <= this.points) {
+				const qUser = {
+					Login: login,
+					BuyCount: amount
+				};
+				axios.post(qUrlCheckIn, qUser)
+				.then((response) => {
+					console.log("Средства успешно потрачены", response);
+				})
+				.catch((XMLHttpRequest) => {
+					console.log("request send error", XMLHttpRequest.response.data);
+				});		
+			}
+			else {
+				alert('Недостаточно баллов чтобы купить данный подарок')
+			}
+		},
+		getKino: function(event) {
+			var qUrlCheckIn = "https://dev2myprojects24.xyz/api/data/shop/buy";
+			var login = localStorage['login'];
+
+			var amount = 1500;
+			if(amount <= this.points) {
+				const qUser = {
+					Login: login,
+					BuyCount: amount
+				};
+				axios.post(qUrlCheckIn, qUser)
+				.then((response) => {
+					console.log("Средства успешно потрачены", response);
+				})
+				.catch((XMLHttpRequest) => {
+					console.log("request send error", XMLHttpRequest.response.data);
+				});		
+			}
+			else {
+				alert('Недостаточно баллов чтобы купить данный подарок')
+			}
+		},
+		getPizza: function(event) {
+			var qUrlCheckIn = "https://dev2myprojects24.xyz/api/data/shop/buy";
+			var login = localStorage['login'];
+
+			var amount = 2000;
+			if(amount <= this.points) {
+				const qUser = {
+					Login: login,
+					BuyCount: amount
+				};
+				axios.post(qUrlCheckIn, qUser)
+				.then((response) => {
+					console.log("Средства успешно потрачены", response);
+				})
+				.catch((XMLHttpRequest) => {
+					console.log("request send error", XMLHttpRequest.response.data);
+				});		
+			}
+			else {
+				alert('Недостаточно баллов чтобы купить данный подарок')
+			}
+		},
+		getBenzin: function(event) {
+			var qUrlCheckIn = "https://dev2myprojects24.xyz/api/data/shop/buy";
+			var login = localStorage['login'];
+
+			var amount = 1000;
+			if(amount <= this.points) {
+				const qUser = {
+					Login: login,
+					BuyCount: amount
+				};
+				axios.post(qUrlCheckIn,	 qUser)
+				.then((response) => {
+					console.log("Средства успешно потрачены", response);
+
+					window.location.href = 'https://dev1myprojects24.xyz/index.html';
+				})
+				.catch((XMLHttpRequest) => {
+					console.log("request send error", XMLHttpRequest.response.data);
+				});		
+			}
+			else {
+				alert('Недостаточно баллов чтобы купить данный подарок')
 			}
 		}
 	}

@@ -23,14 +23,12 @@
 						<button type="button" class="btn btn-link navLink" v-on:click="directAllQu">Опросы</button>
 						<button type="button" class="btn btn-link navLink" v-on:click="directCreateQu">Создать опрос</button>
 						<button type="button" class="btn btn-link navLink">Статистика</button>
-						<button type="button" class="btn btn-link navLink">FAQ</button>
+						<button type="button" class="btn btn-link navLink" v-on:click="directShop">Магазин</button>
 						<button type="button" class="btn btn-link navLink">Отзывы</button>
 						<button type="button" id="logoutLink" class="btn btn-link navLink" v-on:click="logout">Выход</button>
 					</div>
 					<div class="col-3 nav navProfile mt-4">
-						<p>100 баллов</p>
-						<img src="assets/images/Foto_v_menyu.png" class="ml-2" alt="">
-						<img src="assets/images/Strelka_vniz.png" alt="" width="30px">
+						<p>{{points}} баллов</p>
 					</div>
 				</div>
 			</div>

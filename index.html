@@ -22,7 +22,7 @@
 					<a href="index.html"><button type="button" class="btn btn-link navLink" v-on:click="directIndex">Главная</button></a>
 					<a href="#about"><button type="button" class="btn btn-link navLink">О проекте</button></a>
 					<a href="#vote"><button type="button" class="btn btn-link navLink">Опросы</button></a>
-					<a href="#faq"><button type="button" class="btn btn-link navLink">FAQ</button></a>
+					<a href="#faq"><button type="button" class="btn btn-link navLink" v-on:click="directShop">Магазин</button></a>
 					<a href="#reviews"><button type="button" class="btn btn-link navLink">Отзывы</button></a>
 					<button type="button" class="navBtn" data-toggle="modal" data-target="#login">Войти</button>
 					<button type="button" class="strip" data-toggle="modal" data-target="#reg">Регистрация</button>
@@ -41,13 +41,13 @@
 						<button type="button" class="btn btn-link navLink" v-on:click="directAllQu">Опросы</button>
 						<button type="button" class="btn btn-link navLink" v-on:click="directCreateQu">Создать опрос</button>
 						<button type="button" class="btn btn-link navLink">Статистика</button>
-						<button type="button" class="btn btn-link navLink">FAQ</button>
+						<button type="button" class="btn btn-link navLink" v-on:click="directShop">Магазин</button>
 						<button type="button" class="btn btn-link navLink">Отзывы</button>
 						<button type="button" id="logoutLink" class="btn btn-link navLink" v-on:click="logout">Выход</button>
 					</div>
 				</div>
 				<div class="col-xl-3 nav navProfile mt-4">
-					<p>100 баллов</p>
+					<p>{{points}} баллов</p>
 				</div>
 			</div>
 		</div>

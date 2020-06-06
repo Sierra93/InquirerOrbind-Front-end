@@ -205,13 +205,13 @@ html {
 }
 
 .password-control {
-	position: absolute;
-	top: 25px;
-	right: 20px;
-	display: inline-block;
-	width: 27px;
-	height: 25px;
-	background: url("../images/Glazik.png") no-repeat;
+  position: absolute;
+  top: 25px;
+  right: 20px;
+  display: inline-block;
+  width: 27px;
+  height: 25px;
+  background: url("../images/Glazik.png") no-repeat;
 }
 
 .agreeContainer {
@@ -951,7 +951,7 @@ input[type="checkbox"] {
   padding-top: 40px;
 }
 
-.bonus {
+.giftPl {
   width: 352px;
   height: 171px;
   border-radius: 10px;
