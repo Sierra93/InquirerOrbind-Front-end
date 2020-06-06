@@ -68,7 +68,29 @@
 						</div>
 					</div>
 					<div class="col-8">
-						
+						<div class="voteEl" v-for="question in questions">
+							<div class="row">
+								<div class="col-8">
+									<div class="voteInfo">
+										<h2>{{ question.category }}</h2>
+										<h1>{{ question.title }}</h1>
+										<p>{{ question.details }}</p>
+									</div>
+								</div>
+								<div class="col-1">
+									<div class="line"></div>
+								</div>
+								<div class="col-3">
+									<div class="voteRight">
+										<h2>+10 Баллов</h2>
+										<p>за опрос</p>
+										<button class="passBtn">
+											Пройти
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

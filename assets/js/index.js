@@ -149,6 +149,9 @@ var redirects = new Vue({
 			var nextField = this.numberField + 1;
 			$('#field' + this.numberField).after('<input class="mt-3" id="field' + nextField + '" type="text" placeholder="Вариант ответа ' + nextField + '">');
 			this.numberField += 1;
+		},
+		saveQuestion: function(event) {
+			
 		}
 	}
 })
