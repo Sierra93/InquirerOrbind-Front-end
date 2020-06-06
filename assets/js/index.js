@@ -35,6 +35,9 @@ var redirects = new Vue({
 		directCreateQu: function(event) {
 			window.location.href = 'https://dev1myprojects24.xyz/createQuestion.html';
 		},
+		directShop: function(event) {
+			window.location.href = 'https://dev1myprojects24.xyz/gifts.html';
+		},
 		directAllQu: function(event) {
 			var sUrl = "https://dev2myprojects24.xyz/api/data/question/get-all-question";
 
