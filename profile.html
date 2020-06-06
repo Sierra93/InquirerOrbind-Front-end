@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <title>Profile</title>
+</head>
+<body>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<div id="app">
+	
+		<header id="headerAuth" class="header">
+			<div class="navContainer" id="nav">
+				<div class="row">
+					<div class="col-9 mt-3">
+						<img src="assets/images/logo.png" alt="">
+						<button type="button" class="btn btn-link navLink" v-on:click="directIndex">Главная</button>
+						<button type="button" id="profileLink" class="btn btn-link navLink" v-on:click="directProfile">Профиль</button>
+						<button type="button" class="btn btn-link navLink">Опросы</button>
+						<button type="button" class="btn btn-link navLink" v-on:click="directCreateQu">Создать опрос</button>
+						<button type="button" class="btn btn-link navLink">Статистика</button>
+						<button type="button" class="btn btn-link navLink">FAQ</button>
+						<button type="button" class="btn btn-link navLink">Отзывы</button>
+						<button type="button" id="logoutLink" class="btn btn-link navLink">Выход</button>
+					</div>
+					<div class="col-3 nav navProfile mt-4">
+						<p>100 баллов</p>
+						<img src="assets/images/Foto_v_menyu.png" class="ml-2" alt="">
+						<img src="assets/images/Strelka_vniz.png" alt="" width="30px">
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<section class="profile" id="profile">
+			<div class="profileContainer">
+				<div class="row">
+					<div class="col-4">
+						<div class="profileRect">
+							<div class="profileInfo">
+								<div class="text-center">
+									<img src="assets/images/Profil_foto.png" alt="">
+									<h2>{{ firstName }} {{ lastName }}</h2>
+									<p>{{ email }}</p>
+									<button class="editProfile">Редактировать</button>
+								</div>
+							</div>
+						</div>
+						<div class="profileRect blue">
+							<div class="profileBalance">
+								<div class="balanceHead">
+									<h1 class="amountBalance">{{ points }}</h1>
+									<p>Баллов доступно</p>
+								</div>
+								<div class="balanceBody">
+									<p class="text-center">Проходите опросы, копите баллы и обменивайте их на скидки или товары в магазинах наших партнёров</p>
+								</div>
+								<div class="balanceFooter">
+									<div class="text-center">
+										<button class="spendBalls">Потратить баллы</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-8">
+						<div class="voteEl" v-for="question in questions">
+							<div class="row">
+								<div class="col-8">
+									<div class="voteInfo">
+										<h2>{{ question.category }}</h2>
+										<h1>{{ question.title }}</h1>
+										<p>{{ question.details }}</p>
+									</div>
+								</div>
+								<div class="col-1">
+									<div class="line"></div>
+								</div>
+								<div class="col-3">
+									<div class="voteRight">
+										<h2>+10 Баллов</h2>
+										<p>за опрос</p>
+										<button class="passBtn">
+											Пройти
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		</div>
+	
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+  	<script src="assets/js/index.js"></script>
+</body>
+</html>
