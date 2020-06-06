@@ -25,7 +25,7 @@
 						<button type="button" class="btn btn-link navLink">Статистика</button>
 						<button type="button" class="btn btn-link navLink">FAQ</button>
 						<button type="button" class="btn btn-link navLink">Отзывы</button>
-						<button type="button" id="logoutLink" class="btn btn-link navLink">Выход</button>
+						<button type="button" id="logoutLink" class="btn btn-link navLink" v-on:click="logout">Выход</button>
 					</div>
 					<div class="col-3 nav navProfile mt-4">
 						<p>100 баллов</p>
@@ -68,7 +68,24 @@
 						</div>
 					</div>
 					<div class="col-8">
-						
+						<div class="questionPass">
+							<div class="questionHead">
+								<h2>Политичесие взгляды</h2>
+							</div>
+							<div class="questionBody">
+								<h1>Какой политический режим вам нравится больше всего?</h1>
+								<input type="radio" name="rb" id="rb1"> <label for="rb1" id="lb1">{{ answer_1 }}</label><br>
+								<input type="radio" name="rb" id="rb2"> <label for="rb2" id="lb2">{{ answer_2 }}</label><br>
+								<input type="radio" name="rb" id="rb3"> <label for="rb3" id="lb3">{{ answer_3 }}</label><br>
+								<input type="radio" name="rb" id="rb4"> <label for="rb4" id="lb4">{{ answer_4 }}</label><br>
+								<input type="radio" name="rb" id="rb5"> <label for="rb5" id="lb5">{{ answer_5 }}</label>
+							</div>
+							<div class="questionFooter">
+								<div class="text-center">
+									<button class="sendAnswer" v-on:click="endQuestion">Завершить</button>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

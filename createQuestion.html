@@ -12,7 +12,7 @@
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<div id="app">
-
+	
 		<header id="headerAuth" class="header">
 			<div class="navContainer" id="nav">
 				<div class="row">
@@ -20,12 +20,12 @@
 						<img src="assets/images/logo.png" alt="">
 						<button type="button" class="btn btn-link navLink" v-on:click="directIndex">Главная</button>
 						<button type="button" id="profileLink" class="btn btn-link navLink" v-on:click="directProfile">Профиль</button>
-						<button type="button" class="btn btn-link navLink">Опросы</button>
+						<button type="button" class="btn btn-link navLink" v-on:click="directAllQu">Опросы</button>
 						<button type="button" class="btn btn-link navLink" v-on:click="directCreateQu">Создать опрос</button>
 						<button type="button" class="btn btn-link navLink">Статистика</button>
 						<button type="button" class="btn btn-link navLink">FAQ</button>
 						<button type="button" class="btn btn-link navLink">Отзывы</button>
-						<button type="button" id="logoutLink" class="btn btn-link navLink">Выход</button>
+						<button type="button" id="logoutLink" class="btn btn-link navLink" v-on:click="logout">Выход</button>
 					</div>
 					<div class="col-3 nav navProfile mt-4">
 						<p>100 баллов</p>
@@ -75,9 +75,9 @@
 								</div>
 								<div class="bodyCreate">
 									<h2>Вопрос</h2>
-									<input type="text" placeholder="Введите текст вопроса">
-									<textarea placeholder="Введите описание вопроса"></textarea>
-									<input type="text" placeholder="Введите категорию вопроса">
+									<input type="text" placeholder="Введите текст вопроса" id="questionTitle">
+									<textarea placeholder="Введите описание вопроса" id="questionBody"></textarea>
+									<input type="text" placeholder="Введите категорию вопроса" id="questionCategory">
 									<h3>Ответы</h3>
 									<div class="overflowCreate">
 										<input type="text" id="field1" placeholder="Вариант ответа 1">
@@ -95,7 +95,7 @@
 												<button class="saveQuestion" v-on:click="saveQuestion">Сохранить</button>
 											</div>
 										</div>
-									</div>
+									</div>	
 								</div>
 							</div>
 						</div>
@@ -104,7 +104,7 @@
 			</div>
 		</section>
 		</div>
-
+	
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
