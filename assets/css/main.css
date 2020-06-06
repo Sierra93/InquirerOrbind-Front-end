@@ -870,12 +870,190 @@ input[type="checkbox"] {
   padding: 250px;
 }
 
-/* md (>=768 и <=991) */
-@media (min-width: 768px) and (max-width: 991px) {
-  .navContainer {
-    width: 500px !important;
-  }
-  .landImage  {
-    display: none;
-  }
+.shopContainer {
+  width: 1094px;
+  height: 745px;
+  margin: 0 auto;
+  padding-top: 110px;
+}
+
+.music {
+  width: 709px;
+  height: 362px;
+  background-color: #4AA6FB;
+  border-radius: 10px;
+}
+
+.free {
+  width: 141px;
+  height: 34px;
+  background-color: #FE5D5D;
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #fff;
+  padding-left: 19px;
+  padding-top: 5px;
+}
+
+.contentMusic {
+  padding-top: 70px;
+  margin-left: 30px;
+}
+
+.musicTexts {
+  padding-top: 10px;
+}
+
+.musicTexts h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  color: #fff;
+}
+
+.musicTexts p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #fff;
+  opactity: 0.8;
+}
+
+.amountBalls {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+  margin-top: 7px;
+}
+
+.buyMusic {
+  padding-top: 40px;
+  display: flex;
+}
+
+.getMusic {
+  padding: 7px 25px;
+  border-radius: 10px;
+  border: none;
+  background-color: #fff;
+  box-shadow: 0px 4px 15px rgba(32, 140, 239, 0.25);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #208EF3;
+  margin-left: 10px;
+}
+
+.musicImage {
+  padding-top: 40px;
+}
+
+.bonus {
+  width: 352px;
+  height: 171px;
+  border-radius: 10px;
+  background-color: #fff;
+  border: 2px #66B4FC solid;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  margin-top: 0;
+}
+
+.shopRow1 {
+  display: flex;
+}
+
+.kinoText h2 {
+  color: #FB8A4A;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  margin-top: 30px;
+  margin-left: 20px;
+}
+
+.kinoText h1 {
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  margin-left: 20px;
+}
+
+.kinoText p {
+  color: #4AA6FB;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.imageKino {
+  margin-left: -20px;
+  margin-top: 15px;
+}
+
+.imagedodo {
+  margin-top: -10px;
+}
+
+.shopRow2 {
+  display: flex;
+}
+
+.benzinEl {
+  width: 250.5px;
+  height: 320px;
+  border-radius: 10px;
+  background-color: #F9FAFF;
+  border: 2px #4AA6FB solid;
+}
+
+.benzinEl img {
+  margin-top: 20px;
+}
+
+.benzinEl h1 {
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.benzinEl p {
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.benzinEl h3 {
+  color: #4AA6FB;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  margin-right: 10px;
+  margin-top: 8px;
+}
+
+.footerbenzin {
+  display: flex;
+  margin-top: 40px;
+  margin-left: 40px;
+}
+
+.getBenzin {
+  border-radius: 5px;
+  padding: 7px 13px;
+  border: 0;
+  background-color: #4AA6FB;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
 }

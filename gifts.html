@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <title>Profile</title>
+</head>
+<body>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<div id="app">
+	
+		<header id="header" class="header">
+		<div class="navContainer">
+			<div class="row">
+				<div class="col-6 mt-3">
+					<img src="assets/images/logo.png" alt="">
+				</div>
+				<div class="col-6 nav mt-3">
+					<a href="index.html"><button type="button" class="btn btn-link navLink" v-on:click="directIndex">Главная</button></a>
+					<a href="#about"><button type="button" class="btn btn-link navLink">О проекте</button></a>
+					<a href="#vote"><button type="button" class="btn btn-link navLink">Опросы</button></a>
+					<a href="#faq"><button type="button" class="btn btn-link navLink">FAQ</button></a>
+					<a href="#reviews"><button type="button" class="btn btn-link navLink">Отзывы</button></a>
+					<button type="button" class="navBtn" data-toggle="modal" data-target="#login">Войти</button>
+					<button type="button" class="strip" data-toggle="modal" data-target="#reg">Регистрация</button>
+				</div>
+			</div>
+		</div>
+	</header>
+		<header id="headerAuth" class="header" >
+		<div class="navContainer" id="nav">
+			<div class="row" id="#navRow">
+				<div class="col-xl-9 mt-3">
+					<img src="assets/images/logo.png" alt="">
+					<div class="nav">
+						<button type="button" class="btn btn-link navLink" v-on:click="directIndex">Главная</button>
+						<button type="button" id="profileLink" class="btn btn-link navLink" v-on:click="directProfile">Профиль</button>
+						<button type="button" class="btn btn-link navLink" v-on:click="directAllQu">Опросы</button>
+						<button type="button" class="btn btn-link navLink" v-on:click="directCreateQu">Создать опрос</button>
+						<button type="button" class="btn btn-link navLink">Статистика</button>
+						<button type="button" class="btn btn-link navLink">FAQ</button>
+						<button type="button" class="btn btn-link navLink">Отзывы</button>
+						<button type="button" id="logoutLink" class="btn btn-link navLink" v-on:click="logout">Выход</button>
+					</div>
+				</div>
+				<div class="col-xl-3 nav navProfile mt-4">
+					<p>100 баллов</p>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div id="auth">
+		<div class="modal fade" id="login" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="staticBackdropLabel">Авторизация</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="headReg">
+							<p class="head RegOpros">Вход в Соц.Опрос</p>
+							<a class="head toAuth" href="reg.html">Регистрация</a>
+						</div>
+						<div class="buttonsReg">
+							<button class="regBtn btnGoogle"><img class="imgBtn" src="assets/images/gugl.png"> Войти через Google</button>
+							<button class="regBtn btnVK"><img class="imgBtn" src="assets/images/vk.png"> ВКонтакте</button>
+						</div>
+						<form class="regForm" id="loginForm">
+							<input class="regInputs" type="text" placeholder="Логин или Email" id="loginFieldLogin"><br>
+							<div class="password">
+								<input class="regInputs" type="password" placeholder="Пароль" id="passwordFieldLogin"><br>
+								<a href="#" class="password-control"></a>
+							</div>
+							<div class="footerReg mt-4">
+								<div class="custom-control custom-checkbox">
+									<input  type="checkbox" class="custom-control-input footReg" id="defaultLoginUnchecked">
+									<label class="custom-control-label footReg" for="defaultLoginUnchecked">Запомнить меня</label>
+								</div>
+								<a class="footReg reset" href="login.html">Восстановление пароля</a>
+							</div>
+							<button type="button" class="regBtn createAc" id="btnLogin" v-on:click="loginValidation">Войти</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="reg" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="staticBackdropLabel">Регистрация</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="headReg">
+	              <p class="head RegOpros">Регистрация в Соц.Опрос</p>
+	              <a class="head toAuth" href="login.html">Войти</a>
+	            </div>
+	            <div class="buttonsReg">
+	              <button class="regBtn btnGoogle"><img class="imgBtn"src="assets/images/gugl.png"> Войти через Google</button>
+	              <button class="regBtn btnVK"><img class="imgBtn" src="assets/images/vk.png"> ВКонтакте</button>
+	            </div>
+	            <form class="regForm" id="reg">
+	              <input class="regInputs" type="text" placeholder="Логин" id="loginFieldReg"><br>
+	              <input class="regInputs" type="email" placeholder="Email" aria-describedby="emailHelp" id="emailFieldReg"><br>
+	              <input class="regInputs" type="text" placeholder="Номер телефона" id="numberFieldReg"><br>
+	              <div class="password">
+	                <input class="regInputs" type="password" placeholder="Пароль" id="passwordFieldReg"><br>
+	                <a href="#" class="password-control"></a>
+	              </div>
+	              <div class="custom-control custom-checkbox">
+	                <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
+	                <label class="custom-control-label mt-2" for="defaultUnchecked">Я согласен с <a href="#">политикой конфиденциальности</a> и <a href="#">даю своё согласие на обработку моих персональных данных</a></label>
+	              </div>
+	              <button type="button" class="regBtn createAc" id="btnReg" @click="regValidation">Создать новый аккаунт</button>
+	            </form>
+	          </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<section class="shop">
+		<div class="shopContainer">
+			<div class="shopRow1">
+				<div class="row">
+					<div class="col-8">
+						<div class="music">
+							<div class="row">
+								<div class="col-6">
+									<div class="contentMusic">
+										<div class="free">
+											Бесплатная
+										</div>
+										<div class="musicTexts">
+											<h2>Подписка на музыку</h2>
+											<p>Обменяйте свои баллы, на<br>бесплатный месяц музыки в<br>приложении BOOM!</p>
+										</div>
+										<div class="buyMusic">
+											<div class="amountBalls">
+												1000 баллов
+											</div>
+											<button class="getMusic">Получить</button>
+										</div>
+									</div>
+								</div>
+								<div class="col-6">
+									<div class="text-center musicImage">
+										<img src="assets/images/Group_71.png" alt="">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="bonuses">
+							<div class="bonus kinoBonus">
+								<div class="row">
+									<div class="col-6">
+										<div class="kinoText">
+											<h2>Кинобонус</h2>
+											<h1>Подписка на КиноПоиск</h1>
+											<p>1500 баллов</p>
+										</div>
+									</div>
+									<div class="col-6">
+										<div class="imageKino">
+											<img src="assets/images/image_32.png" alt="">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="bonus pizzaBonus mt-3">
+								<div class="row">
+									<div class="col-6">
+										<div class="kinoText">
+											<h2>Пицца Time</h2>
+											<h1>Скидка 10% на любую пиццу</h1>
+											<p>2000 баллов</p>
+										</div>
+									</div>
+									<div class="col-6">
+										<div class="imagedodo">
+											<img src="assets/images/dodo.png" alt="">
+										</div>
+									</div>
+								</div>
+							</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="shopRow2 mt-4">
+					<div class="row">
+						<div class="col-3">
+							<div class="benzinEl">
+								<div class="text-center">
+									<img src="assets/images/Group_59.png" alt="">
+									<h1>Скидка на бензин</h1>
+									<p>Получите скидку в<br>10% на заправку в АЗС<br>Лукойл</p>
+								</div>
+								<div class="footerbenzin">
+									<h3>1000 баллов</h3>
+									<button class="getBenzin">Получить</button>
+								</div>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="benzinEl">
+								<div class="text-center">
+									<img src="assets/images/Group_59.png" alt="">
+									<h1>Скидка на бензин</h1>
+									<p>Получите скидку в<br>10% на заправку в АЗС<br>Лукойл</p>
+								</div>
+								<div class="footerbenzin">
+									<h3>1000 баллов</h3>
+									<button class="getBenzin">Получить</button>
+								</div>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="benzinEl">
+								<div class="text-center">
+									<img src="assets/images/Group_59.png" alt="">
+									<h1>Скидка на бензин</h1>
+									<p>Получите скидку в<br>10% на заправку в АЗС<br>Лукойл</p>
+								</div>
+								<div class="footerbenzin">
+									<h3>1000 баллов</h3>
+									<button class="getBenzin">Получить</button>
+								</div>
+							</div>
+						</div>
+						<div class="col-3">
+							<div class="benzinEl">
+								<div class="text-center">
+									<img src="assets/images/Group_59.png" alt="">
+									<h1>Скидка на бензин</h1>
+									<p>Получите скидку в<br>10% на заправку в АЗС<br>Лукойл</p>
+								</div>
+								<div class="footerbenzin">
+									<h3>1000 баллов</h3>
+									<button class="getBenzin">Получить</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+  	<script src="assets/js/index.js"></script>
+</body>
+</html>
